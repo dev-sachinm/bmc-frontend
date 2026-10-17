@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="BMC milk cooler">
+  <rect width="32" height="32" rx="8" fill="#10211c"/>
+  <rect x="6" y="5.5" width="20" height="21" rx="3.5" fill="#1f4d42"/>
+  <rect x="6" y="5.5" width="20" height="4.5" rx="2" fill="#c4a574"/>
+  <rect x="9" y="13" width="14" height="10" rx="2" fill="#0e1c18"/>
+  <path d="M9 18.2h14v2.8a2 2 0 0 1-2 2H11a2 2 0 0 1-2-2z" fill="#f6f1e7"/>
+  <path d="M11.2 16.4c1 .9 1.6.9 2.6 0s1.6-.9 2.6 0 1.6.9 2.6 0" fill="none" stroke="#c4a574" stroke-width="1.3" stroke-linecap="round"/>
+</svg>
