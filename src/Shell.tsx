@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
+import { appName } from "./config";
 import { clearToken, currentUsername } from "./session";
 
 const wideMenuQuery = "(min-width: 1024px)";
@@ -111,7 +112,7 @@ export function Shell() {
               <span className="block h-0.5 w-full rounded-full bg-current" />
             </span>
           </button>
-          <p className="font-display text-lg leading-none text-[#1f4d42]">BMC</p>
+          <p className="font-display text-lg leading-none text-[#1f4d42]">{appName}</p>
         </div>
         <div className="min-w-0 flex-1">
           <Outlet />

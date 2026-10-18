@@ -2,6 +2,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useEffect, useState, type ReactNode } from "react";
 import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import { ApiError } from "./api";
+import { cacheGcTime, cacheStaleTime } from "./config";
 import { LoginPage } from "./LoginPage";
 import { currentUsername, getToken, subscribeUnauthorized } from "./session";
 import { Shell } from "./Shell";
@@ -87,6 +88,8 @@ export function App() {
       new QueryClient({
         defaultOptions: {
           queries: {
+            staleTime: cacheStaleTime,
+            gcTime: cacheGcTime,
             retry: (failureCount, error) => {
               if (error instanceof ApiError) {
                 return false;

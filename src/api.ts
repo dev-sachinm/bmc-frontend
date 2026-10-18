@@ -1,3 +1,4 @@
+import { apiUrl } from "./config";
 import { getToken, notifyUnauthorized, saveToken } from "./session";
 
 export class ApiError extends Error {}
@@ -40,7 +41,7 @@ export async function readError(response: Response, fallback: string): Promise<s
 }
 
 export async function login(username: string, password: string): Promise<void> {
-  const response = await fetch("/api/v1/auth/login", {
+  const response = await fetch(apiUrl("/api/v1/auth/login"), {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ username, password }),
@@ -67,7 +68,7 @@ export async function apiFetch(path: string, init: RequestInit = {}): Promise<Re
     headers.set("Content-Type", "application/json");
   }
 
-  const response = await fetch(path, { ...init, headers });
+  const response = await fetch(apiUrl(path), { ...init, headers });
   if (response.status === 401) {
     const detail = await readError(response, "Invalid or expired access token");
     notifyUnauthorized();

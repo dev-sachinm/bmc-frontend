@@ -1,4 +1,5 @@
 import { ApiError, apiFetch, readError } from "./api";
+import { tablePageSize } from "./config";
 
 export type BmcModel = {
   code: string;
@@ -109,7 +110,7 @@ export async function fetchModels(): Promise<BmcModel[]> {
 export async function fetchTanks(
   search = "",
   page = 1,
-  page_size = 20,
+  page_size = tablePageSize,
 ): Promise<Page<TankSummary>> {
   const params = new URLSearchParams({ page: String(page), page_size: String(page_size) });
   if (search.trim()) params.set("search", search.trim());

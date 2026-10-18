@@ -1,4 +1,5 @@
 import { ApiError, apiFetch, readError } from "./api";
+import { tablePageSize } from "./config";
 import type { Page } from "./tanks";
 
 export type User = {
@@ -32,7 +33,7 @@ async function readJson<T>(response: Response, fallback: string): Promise<T> {
 export async function fetchUsers(
   search = "",
   page = 1,
-  page_size = 20,
+  page_size = tablePageSize,
 ): Promise<Page<User>> {
   const params = new URLSearchParams({ page: String(page), page_size: String(page_size) });
   if (search.trim()) params.set("search", search.trim());

@@ -1,11 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { tablePageSize } from "./config";
 import { ContentBack } from "./ContentBack";
 import { Pager } from "./Pager";
 import { fetchUsers, type User } from "./users";
-
-const PAGE_SIZE = 20;
 
 function UserRow({ user }: { user: User }) {
   return (
@@ -33,7 +32,7 @@ export function UsersPage() {
 
   const users = useQuery({
     queryKey: ["users", search, page],
-    queryFn: () => fetchUsers(search, page, PAGE_SIZE),
+    queryFn: () => fetchUsers(search, page, tablePageSize),
   });
 
   function applySearch(e: React.FormEvent) {

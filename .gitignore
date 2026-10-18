@@ -1,4 +1,44 @@
+# Dependencies
 node_modules
+
+# Vite build and cache
 dist
+dist-ssr
 .vite
+
+# TypeScript
+*.tsbuildinfo
+
+# Vitest
+coverage
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Local env overrides (Vite). Shared .env files stay tracked.
 *.local
+
+# Tool caches
+.eslintcache
+.cache
+*.tgz
+
+# Editors
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,11 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { tablePageSize } from "./config";
 import { Pager } from "./Pager";
 import { fetchTanks, type TankSummary } from "./tanks";
 
 export const TANKS_POLL_MS = 5000;
-const PAGE_SIZE = 20;
 
 function readingLabel(reading: TankSummary["latest_reading"]): string {
   if (!reading) {
@@ -80,7 +80,7 @@ export function TanksPage() {
 
   const tanks = useQuery({
     queryKey: ["tanks", search, page],
-    queryFn: () => fetchTanks(search, page, PAGE_SIZE),
+    queryFn: () => fetchTanks(search, page, tablePageSize),
     refetchInterval: page === 1 && !search ? TANKS_POLL_MS : false,
     refetchOnWindowFocus: false,
   });
